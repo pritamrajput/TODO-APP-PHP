@@ -13,7 +13,7 @@
 <body class="bg-primary">
 
 <!-- Task submitting form -->
-<form action="/ToDoAPP/insert.php" method = "POST">
+<form action="/ToDoAPP/taskUpdate.php?action=1" method = "POST">
     <div class="container">
         <div class="row justify-content-center bg-white m-auto shadow mt-3 py-3 col-md-6">
             <h3 class="text-center text-primary font-monospace">TODO LIST</h3>
