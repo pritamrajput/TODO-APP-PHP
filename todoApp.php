@@ -32,6 +32,7 @@
 <!-- Task list container -->
 <div class="container">
     <div class="col-8 bg-white m-auto mt-3">
+
       <form action="todoApp.php" method="GET" class="d-flex justify-content-center align-items-end p-3">
         <div class = "px-2">
             <label>Pick a date</label>
@@ -41,11 +42,17 @@
             <button type="submit" class="btn btn-primary">Filter</button>
         </div>
       </form>
-
+<div class="all-buttons">
       <form class="delete-all-form" action="taskUpdate.php?action=2" method='POST'> 
         <input type="hidden" id="custId" name="deleteId" value="">
-        <button type="submit" class="btn btn-outline-danger delete-all mx-2" disabled = "false">Delete all</button>
+        <button type="submit" class="btn btn-outline-danger delete-all mx-2">Delete all</button>
       </form>
+       <form class="done-all-form" action="taskUpdate.php?action=3" method='POST'> 
+        <input type="hidden" id="donecustId" name="doneId" value="">
+        <button type="submit" class="btn btn-outline-danger done-all mx-2">Check all</button>
+      </form>
+</div>
+
         <table class="table">
             <tbody>
                 <?php

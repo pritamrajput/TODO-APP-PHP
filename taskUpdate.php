@@ -75,6 +75,16 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
        }
         redirectToTaskHome();
     }
+
+     else if ($_GET['action']==3) {
+      $donetaskIdList = explode(',',$_POST['doneId']);
+      echo var_dump($donetaskIdList);
+
+      for($i = 0; $i<count($donetaskIdList); $i++) {
+        completedTask($donetaskIdList[$i]);
+       }
+        // redirectToTaskHome();
+    }
 }
 
 ?>

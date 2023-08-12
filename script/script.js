@@ -2,17 +2,22 @@
 
 const deleteButton = document.querySelectorAll("#delete-btn");
 let inputHidden = document.querySelectorAll("#custId");
-const checkBoxes = document.querySelectorAll("input[type='checkbox']");
+let doneinputHidden = document.querySelectorAll("#donecustId");
+const checkBoxes = document.querySelectorAll(".delete-checkbox");
 let isCheckboxChecked = false;
 const deleteAllButton = document.querySelector(".delete-all");
+const doneAllButton = document.querySelector(".done-all");
 let taskArray = [];
+let doneTaskArray = [];
 
 
-for (let i = 0; i < checkBoxes.length; i++){
-  checkBoxes[i].addEventListener('click',function (event){
-    if(checkBoxes[i].checked){
-        taskArray.push(checkBoxes[i].value);
-    }
+
+
+deleteAllButton.addEventListener('click',function(event){
+    for (let i = 0; i < checkBoxes.length; i++){
+       if(checkBoxes[i].checked){
+          taskArray.push(checkBoxes[i].value);
+       }
     else if(!checkBoxes[i].checked){
       const index = taskArray.indexOf(checkBoxes[i].value);
       if(index > -1){
@@ -21,7 +26,42 @@ for (let i = 0; i < checkBoxes.length; i++){
     }
     inputHidden[0].value = taskArray;
     
-    taskArray.length ? deleteAllButton.removeAttribute("disabled"): deleteAllButton.setAttribute("disabled",'true');
+  }
+  
+})
+
+doneAllButton.addEventListener('click',function(event){
+    for (let i = 0; i < checkBoxes.length; i++){
+       if(checkBoxes[i].checked){
+          doneTaskArray.push(checkBoxes[i].value);
+       }
+    else if(!checkBoxes[i].checked){
+      const index = doneTaskArray.indexOf(checkBoxes[i].value);
+      if(index > -1){
+        doneTaskArray.splice(index,1);
+      }
+    }
+    doneinputHidden[0].value = doneTaskArray; 
+  }
+  
+})
+
+// taskArray.length ? deleteAllButton.removeAttribute("disabled"): deleteAllButton.setAttribute("disabled",'true');
+
+
+for (let i = 0; i < donecheckBoxes.length; i++){
+  donecheckBoxes[i].addEventListener('click',function (event){
+    if(donecheckBoxes[i].checked){
+        doneTaskArray.push(donecheckBoxes[i].value);
+    }
+    else if(!donecheckBoxes[i].checked){
+      const index = doneTaskArray.indexOf(donecheckBoxes[i].value);
+      if(index > -1){
+       doneTaskArray.splice(index,1);
+      }
+    }
+    doneinputHidden[0].value = doneTaskArray;
+    doneTaskArray.length ? doneAllButton.removeAttribute("disabled"): doneAllButton.setAttribute("disabled",'true');
   }) 
 }
 

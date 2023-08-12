@@ -1,4 +1,27 @@
 
 .delete-all-form {
   cursor: no-drop !important;
+  display: inline-block;
+}
+
+.row1{
+  display: flex;
+  position: relative;
+  align-items: center;
+  gap: 20px;
+  padding-bottom: 20px;
+}
+
+.my-2{
+  display: table;
+  margin-bottom: 30px !important;
+  width: 100% !important;
+}
+
+.all-buttons{
+  display: flex;
+}
+
+.done-column, .delete-column{
+  padding: 0 !important;
 }
