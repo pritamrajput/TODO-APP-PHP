@@ -7,7 +7,7 @@
 
      <!-- Bootstrap included -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-    
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body class="bg-primary">
 
@@ -42,7 +42,7 @@
         </div>
       </form>
 
-      <form action="taskUpdate.php?action=2" method='POST'> 
+      <form class="delete-all-form" action="taskUpdate.php?action=2" method='POST'> 
         <input type="hidden" id="custId" name="deleteId" value="">
         <button type="submit" class="btn btn-outline-danger delete-all mx-2" disabled = "false">Delete all</button>
       </form>
