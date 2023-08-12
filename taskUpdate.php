@@ -43,6 +43,14 @@ function completedTask($taskId){
         return 'completed';
 }
 
+function completedTaskAll($taskId){
+        $id = $taskId;
+        global $con;
+        $sql = "UPDATE `tbltodo` SET `done`='1' WHERE id = $id";
+        mysqli_query($con, $sql);
+        return 'completed';
+}
+
 
 
 // for choosing which operation you want to perform on the task list
@@ -81,9 +89,9 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
       echo var_dump($donetaskIdList);
 
       for($i = 0; $i<count($donetaskIdList); $i++) {
-        completedTask($donetaskIdList[$i]);
+        completedTaskAll($donetaskIdList[$i]);
        }
-        // redirectToTaskHome();
+        redirectToTaskHome();
     }
 }
 
