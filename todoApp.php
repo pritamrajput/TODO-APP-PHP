@@ -52,13 +52,14 @@
         <button type="submit" class="btn btn-outline-danger done-all mx-2">Check all</button>
       </form>
 </div>
+ <nav class="navbar navbar-light bg-light">
+         <form action="todoApp.php" class="form-inline" method='GET'>
+         <input class="form-control mr-sm-2" name="search" type="search" placeholder="Search your task">
+         <button class="btn btn-primary my-sm-0" type="submit">Search</button>
+        </form>
+</nav>
 
-<div class="search-bar">
-    <form action="taskUpdate.php?&date=<?php echo isset($_GET['date']) ? $_GET['date'] : ''; ?>" method='GET'>
-      <input type="text" name="search" id="search-input" placeholder="Search your task">
-      <button type="submit">search</button>
-    </form>
-</div>
+
 
         <table class="table">
             <tbody>

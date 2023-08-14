@@ -25,3 +25,11 @@
 .done-column, .delete-column{
   padding: 0 !important;
 }
+
+.form-inline{
+  display: flex;
+}
+
+nav.navbar{
+  justify-content: center !important;
+}

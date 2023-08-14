@@ -18,7 +18,7 @@
 
 
 //function to show task list
-   function showTaskList($data){
+   function showTaskList($data,$date){
       if(mysqli_num_rows($data) > 0){
            while ($row = mysqli_fetch_array($data)){
              $checkListStyle = $row['done'] ? 'text-decoration: line-through;' : 'text-decoration: none;';
@@ -30,12 +30,12 @@
                     	<div style="font-size: 10px;color: #899499; position:absolute; right:200px;">'.$row['date'].'</div>
                     </td>
                <td class="done-column" style="width:10%;">
-						<form class="checked-form" action="taskUpdate.php?ID='.$row['id'].'&check='.$row['done'].'&action=0" method="post">
+						<form class="checked-form" action="taskUpdate.php?ID='.$row['id'].'&date='.$date.'&check='.$row['done'].'&action=0" method="post">
 							<input type="submit" value='.$checkedBtnName.' class="btn btn-outline-success" id="done-btn">
 						</form>
 					</td>
                <td class="delete-column" style="width:10%;">
-						<form action="taskUpdate.php?ID='.$row['id'].'&action=-1" method="post">
+						<form action="taskUpdate.php?ID='.$row['id'].'&date='.$date.'&action=-1" method="post">
 						    <input type="submit" value="Delete" class="btn btn-outline-danger" id="delete-btn">
 						</form>
                </td>
@@ -51,9 +51,14 @@
   
   
      $date = isset($_GET['date']) ?  $_GET['date'] :  date('Y-m-d');
-     $taskList = getTasks($date,$con);
-   //   showTaskList($taskList);
      $searchTask = isset($_GET['search']) ? $_GET['search'] : '';
-     $searchTasks = searchTaskLists($searchTask,$con);
-     showTaskList($searchTasks);      
+     if($searchTask){
+          $searchTasks = searchTaskLists($searchTask,$con);
+          showTaskList($searchTasks,$date);  
+     }
+     else {
+         $taskList = getTasks($date,$con);
+         showTaskList($taskList,$date);
+     }
+        
 ?>         

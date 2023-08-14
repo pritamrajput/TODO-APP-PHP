@@ -89,10 +89,11 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
       echo var_dump($donetaskIdList);
 
       for($i = 0; $i<count($donetaskIdList); $i++) {
-        completedTaskAll($donetaskIdList[$i]);
+         completedTaskAll($donetaskIdList[$i]);
        }
         redirectToTaskHome();
     }
+
 }
 
 ?>
