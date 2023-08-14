@@ -4,7 +4,6 @@ const deleteButton = document.querySelectorAll("#delete-btn");
 let inputHidden = document.querySelectorAll("#custId");
 let doneinputHidden = document.querySelectorAll("#donecustId");
 const checkBoxes = document.querySelectorAll(".delete-checkbox");
-let isCheckboxChecked = false;
 const deleteAllButton = document.querySelector(".delete-all");
 const doneAllButton = document.querySelector(".done-all");
 let taskArray = [];
@@ -25,7 +24,6 @@ deleteAllButton.addEventListener('click',function(event){
       }
     }
     inputHidden[0].value = taskArray;
-    
   }
   
 })
