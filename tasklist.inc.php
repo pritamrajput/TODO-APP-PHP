@@ -23,6 +23,7 @@
            while ($row = mysqli_fetch_array($data)){
              $checkListStyle = $row['done'] ? 'text-decoration: line-through;' : 'text-decoration: none;';
              $checkedBtnName = $row['done'] ? 'Undo':'Done';
+             $searchText = isset($_GET['search'])?$_GET['search']:'';
             echo '<tr class="my-2">
 					<td class="row1">
                     	<input class="delete-checkbox" type="checkbox" name ="deleteId[]" value = '.$row['id'].'>
@@ -30,12 +31,12 @@
                     	<div style="font-size: 10px;color: #899499; position:absolute; right:200px;">'.$row['date'].'</div>
                     </td>
                <td class="done-column" style="width:10%;">
-						<form class="checked-form" action="taskUpdate.php?ID='.$row['id'].'&date='.$date.'&check='.$row['done'].'&action=0" method="post">
+						<form class="checked-form" action="taskUpdate.php?ID='.$row['id'].'&date='.$date.'&check='.$row['done'].'&action=0&search='. $searchText.'" method="post">
 							<input type="submit" value='.$checkedBtnName.' class="btn btn-outline-success" id="done-btn">
 						</form>
 					</td>
                <td class="delete-column" style="width:10%;">
-						<form action="taskUpdate.php?ID='.$row['id'].'&date='.$date.'&action=-1" method="post">
+						<form action="taskUpdate.php?ID='.$row['id'].'&date='.$date.'&action=-1&search='. $searchText.'" method="post">
 						    <input type="submit" value="Delete" class="btn btn-outline-danger" id="delete-btn">
 						</form>
                </td>
