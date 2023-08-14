@@ -49,22 +49,6 @@ doneAllButton.addEventListener('click',function(event){
 // taskArray.length ? deleteAllButton.removeAttribute("disabled"): deleteAllButton.setAttribute("disabled",'true');
 
 
-for (let i = 0; i < donecheckBoxes.length; i++){
-  donecheckBoxes[i].addEventListener('click',function (event){
-    if(donecheckBoxes[i].checked){
-        doneTaskArray.push(donecheckBoxes[i].value);
-    }
-    else if(!donecheckBoxes[i].checked){
-      const index = doneTaskArray.indexOf(donecheckBoxes[i].value);
-      if(index > -1){
-       doneTaskArray.splice(index,1);
-      }
-    }
-    doneinputHidden[0].value = doneTaskArray;
-    doneTaskArray.length ? doneAllButton.removeAttribute("disabled"): doneAllButton.setAttribute("disabled",'true');
-  }) 
-}
-
 
 for (let i = 0; i < deleteButton.length; i++) {
    deleteButton[i].addEventListener('click',function (event){

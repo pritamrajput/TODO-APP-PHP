@@ -5,13 +5,17 @@ include "config.php";
 
 // function to redirect
 function redirectToTaskHome(){
-    if(isset($_GET['date'])&&isset($_GET['search'])){
+    if(isset($_GET['date'])&&$_GET['search']!=''){
         $search = $_GET['search'];
         header("location:todoApp.php?search=$search");
       }
     else if(isset($_GET['date'])){
         $url = $_GET['date'];
-        header("location:todoApp.php?search=$url");
+        header("location:todoApp.php?date=$url");
+    }
+    elseif ($_GET['search']!='') {
+      $search = $_GET['search'];
+      header("location:todoApp.php?search=$search");
     }
    else{
        header("location:todoApp.php");
