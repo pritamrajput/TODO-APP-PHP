@@ -43,14 +43,21 @@
         </div>
       </form>
 <div class="all-buttons">
-      <form class="delete-all-form" action="taskUpdate.php?action=2" method='POST'> 
+      <form class="delete-all-form" action="taskUpdate.php?action=2&date=<?php echo isset($_GET['date']) ? $_GET['date'] : ''; ?>" method='POST'> 
         <input type="hidden" id="custId" name="deleteId" value="">
         <button type="submit" class="btn btn-outline-danger delete-all mx-2">Delete all</button>
       </form>
-       <form class="done-all-form" action="taskUpdate.php?action=3" method='POST'> 
+       <form class="done-all-form" action="taskUpdate.php?action=3&date=<?php echo isset($_GET['date']) ? $_GET['date'] : ''; ?>"  method='POST'> 
         <input type="hidden" id="donecustId" name="doneId" value="">
         <button type="submit" class="btn btn-outline-danger done-all mx-2">Check all</button>
       </form>
+</div>
+
+<div class="search-bar">
+    <form action="taskUpdate.php?&date=<?php echo isset($_GET['date']) ? $_GET['date'] : ''; ?>" method='GET'>
+      <input type="text" name="search" id="search-input" placeholder="Search your task">
+      <button type="submit">search</button>
+    </form>
 </div>
 
         <table class="table">
