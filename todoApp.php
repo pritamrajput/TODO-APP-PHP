@@ -8,6 +8,7 @@
      <!-- Bootstrap included -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
+    <script src="https://kit.fontawesome.com/8023d91df1.js" crossorigin="anonymous"></script>
 </head>
 <body class="bg-primary">
 
@@ -45,17 +46,17 @@
 <div class="all-buttons">
       <form class="delete-all-form" action="taskUpdate.php?action=2&date=<?php echo isset($_GET['date']) ? $_GET['date'] :date('Y-m-d'); ?>" method='POST'> 
         <input type="hidden" id="custId" name="deleteId" value="">
-        <button type="submit" class="btn btn-outline-danger delete-all mx-2">Delete all</button>
+        <button type="submit" class="btn btn-outline-danger delete-all mx-2"><i class="fa-solid fa-trash-can"></i></button>
       </form>
        <form class="done-all-form" action="taskUpdate.php?action=3&date=<?php echo isset($_GET['date']) ? $_GET['date'] : date('Y-m-d'); ?>&search=<?php echo isset($_GET['search'])?$_GET['search']:'';?>"  method='POST'> 
         <input type="hidden" id="donecustId" name="doneId" value="">
-        <button type="submit" class="btn btn-outline-danger done-all mx-2">Check all</button>
+        <button type="submit" class="btn btn-outline-danger done-all mx-2"><i class="fa-solid fa-check"></i></button>
       </form>
 </div>
  <nav class="navbar navbar-light bg-light">
          <form action="todoApp.php" class="form-inline" method='GET'>
          <input class="form-control mr-sm-2" name="search" type="search" placeholder="Search your task">
-         <button class="btn btn-primary my-sm-0" type="submit">Search</button>
+         <button  class="btn btn-primary my-sm-0 search-btn" type="submit"><i class="fa-solid fa-magnifying-glass"></i>Search</button>
         </form>
 </nav>
 

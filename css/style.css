@@ -28,8 +28,16 @@
 
 .form-inline{
   display: flex;
+  gap: 10px;
 }
 
 nav.navbar{
   justify-content: center !important;
+}
+
+.search-btn{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
 }
