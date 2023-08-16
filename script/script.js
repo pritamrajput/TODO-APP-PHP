@@ -11,9 +11,8 @@ let doneTaskArray = [];
 
 
 
-
-deleteAllButton.addEventListener('click',function(event){
-    for (let i = 0; i < checkBoxes.length; i++){
+function updateTaskArray(checkBoxes, taskArray, inputHidden){
+ for (let i = 0; i < checkBoxes.length; i++){
        if(checkBoxes[i].checked){
           taskArray.push(checkBoxes[i].value);
        }
@@ -25,22 +24,16 @@ deleteAllButton.addEventListener('click',function(event){
     }
     inputHidden[0].value = taskArray;
   }
+}
+
+
+deleteAllButton.addEventListener('click',function(event){
+  updateTaskArray(checkBoxes, taskArray, inputHidden);
   
 })
 
 doneAllButton.addEventListener('click',function(event){
-    for (let i = 0; i < checkBoxes.length; i++){
-       if(checkBoxes[i].checked){
-          doneTaskArray.push(checkBoxes[i].value);
-       }
-    else if(!checkBoxes[i].checked){
-      const index = doneTaskArray.indexOf(checkBoxes[i].value);
-      if(index > -1){
-        doneTaskArray.splice(index,1);
-      }
-    }
-    doneinputHidden[0].value = doneTaskArray; 
-  }
+  updateTaskArray(checkBoxes, doneTaskArray, doneinputHidden);
   
 })
 

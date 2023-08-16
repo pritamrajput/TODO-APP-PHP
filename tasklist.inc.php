@@ -59,7 +59,9 @@
      }
      else {
          $taskList = getTasks($date,$con);
-         showTaskList($taskList,$date);
+         if($_SERVER['REQUEST_METHOD'] == 'GET'){
+            showTaskList($taskList,$date);
+         }
      }
         
 ?>         
