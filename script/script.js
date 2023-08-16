@@ -39,20 +39,20 @@ doneAllButton.addEventListener('click',function(event){
 
 // taskArray.length ? deleteAllButton.removeAttribute("disabled"): deleteAllButton.setAttribute("disabled",'true');
 
+function confirmWindow(event) {
+  const confirm = window.confirm("Are you sure, you want to delete this task ?");
+      if(!confirm){
+        event.preventDefault();
+      }
+}
 
 
 for (let i = 0; i < deleteButton.length; i++) {
    deleteButton[i].addEventListener('click',function (event){
-      const confirm = window.confirm("Are you sure, you want to delete this task ?");
-      if(!confirm){
-        event.preventDefault();
-      }
+      confirmWindow(event);
    })  
 }
 
 deleteAllButton.addEventListener('click',function (event) {
-  const confirm = window.confirm("Are you sure, you want to delete these tasks ?");
-  if(!confirm){
-        event.preventDefault();
-      }
+      confirmWindow(event);
 })
