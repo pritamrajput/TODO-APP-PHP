@@ -37,8 +37,8 @@ doneAllButton.addEventListener('click',function(event){
   
 })
 
-// taskArray.length ? deleteAllButton.removeAttribute("disabled"): deleteAllButton.setAttribute("disabled",'true');
 
+//function for confirm winow dialog box
 function confirmWindow(event) {
   const confirm = window.confirm("Are you sure, you want to delete this task ?");
       if(!confirm){

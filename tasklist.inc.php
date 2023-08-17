@@ -54,14 +54,14 @@
      $date = isset($_GET['date']) ?  $_GET['date'] :  date('Y-m-d');
      $searchTask = isset($_GET['search']) ? $_GET['search'] : '';
      if($searchTask){
+         if($_SERVER['REQUEST_METHOD'] == 'GET'){
           $searchTasks = searchTaskLists($searchTask,$con);
-          showTaskList($searchTasks,$date);  
+          showTaskList($searchTasks,$date);
+         }
      }
      else {
          $taskList = getTasks($date,$con);
-         if($_SERVER['REQUEST_METHOD'] == 'GET'){
             showTaskList($taskList,$date);
-         }
      }
         
 ?>         
