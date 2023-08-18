@@ -10,7 +10,7 @@ let taskArray = [];
 let doneTaskArray = [];
 
 
-
+//function to upadate the task array
 function updateTaskArray(checkBoxes, taskArray, inputHidden){
  for (let i = 0; i < checkBoxes.length; i++){
        if(checkBoxes[i].checked){
