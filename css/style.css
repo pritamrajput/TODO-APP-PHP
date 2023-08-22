@@ -41,7 +41,3 @@ nav.navbar{
   align-items: center;
   gap: 10px;
 }
-
-#search-filter{
-  display: flex;
-}

@@ -7,7 +7,9 @@ include "config.php";
 function redirectToTaskHome(){
     if(isset($_GET['date'])&&$_GET['search']!=''){
         $search = $_GET['search'];
-        header("location:todoApp.php?search=$search");
+        $url = $_GET['date'];
+        $request = $_GET['request'];
+        header("location:todoApp.php?search=$search&date=$url&request=$request");
       }
     else if(isset($_GET['date'])){
         $url = $_GET['date'];
@@ -72,6 +74,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     else if($_GET['action']==0) {
       $isTaskcompleted =  completedTask($_GET['ID']);
       if($isTaskcompleted == 'completed'){
+        echo $_GET['date'];
         redirectToTaskHome();
       } 
    }
