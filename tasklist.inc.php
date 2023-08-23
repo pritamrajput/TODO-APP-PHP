@@ -14,6 +14,8 @@
      $data = mysqli_query($con, $sql);
      return $data;
    }
+  
+
  
 
 
@@ -66,6 +68,7 @@ if($_GET['request'] ){
          $taskList = getTasks($date,$con);
             showTaskList($taskList,$date);
      }
-
+   //   $taskList = getTasks($date,$con);
+   //          showTaskList($taskList,$date);
         
 ?>         

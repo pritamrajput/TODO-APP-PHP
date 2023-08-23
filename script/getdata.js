@@ -3,9 +3,15 @@
 const searchBtn = document.getElementsByClassName("search-btn");
 const searchInput = document.getElementById("search-input");
 const taskTable = document.getElementById("table-body");
+const deleteAllForm = document.getElementsByClassName("delete-all-form");
+const doneAllForm = document.getElementsByClassName("done-all-form");
+const formControl = document.querySelector("#search-filter .form-control");
+
 
 searchBtn[0].addEventListener('click',function () {
     const searchString = searchInput.value;
+    deleteAllForm[0].setAttribute("action",`taskUpdate.php?action=2&date=${formControl.value}&search=${searchString}&request=ajax`);
+    doneAllForm[0].setAttribute("action",`taskUpdate.php?action=3&date=${formControl.value}&search=${searchString}&request=ajax`);
     taskTable.innerHTML = '';
     if(searchString.trim !== ''){
         const xhr = new XMLHttpRequest();
@@ -36,7 +42,7 @@ searchBtn[0].addEventListener('click',function () {
             }
         }
 
-        xhr.open("GET","fetch.php?search="+searchString ,true);
+        xhr.open("GET","fetch.php?search="+searchString+"&request=ajax" ,true);
         xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         xhr.send();
     }

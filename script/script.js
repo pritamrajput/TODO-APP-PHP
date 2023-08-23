@@ -22,7 +22,9 @@ function updateTaskArray(checkBoxes, taskArray, inputHidden){
         taskArray.splice(index,1);
       }
     }
+    // console.log(taskArray);
     inputHidden[0].value = taskArray;
+    // console.log(inputHidden[0].value);
   }
 }
 
